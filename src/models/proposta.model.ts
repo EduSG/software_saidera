@@ -1,32 +1,65 @@
 import { DataTypes, Model, Sequelize } from 'sequelize';
 import sequelize from '../config/database';
+import { ProdutosProposta } from '../interfaces';
 
 class Proposta extends Model {
   public id!: number;
-  public categoria!: string;
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+  public data_proposta!: Date | null;
+  public empresa!: number | null;
+  public id_vendedor!: number | null;
+  public id_lead!: number | null;
+  public id_cliente!: number | null;
+  public id_fornecedor!: number | null;
+  public produtos_proposta!: ProdutosProposta[] | null;
 }
 
-// Definição do modelo
 Proposta.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      allowNull: false,
+      autoIncrement: true,
+      allowNull: true,
     },
-    categoria: {
-      type: DataTypes.STRING,
+    data_proposta: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    empresa: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    id_vendedor: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    id_lead: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    id_cliente: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    id_fornecedor: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    produtos_proposta: {
+      type: DataTypes.JSONB,
       allowNull: true,
     },
   },
   {
-    sequelize, // Passando a instância do Sequelize para o método init
-    modelName: 'Proposta',
+    sequelize,
     tableName: 'propostas',
-    timestamps: true,
+    timestamps: false,
   }
 );
+
+// Relacionamentos
+//Proposta.belongsTo(Vendedor, { foreignKey: 'id_vendedor', targetKey: 'id' });
+//Proposta.belongsTo(Cliente, { foreignKey: 'id_cliente', targetKey: 'id' });
+//Proposta.belongsTo(Fornecedor, { foreignKey: 'id_fornecedor', targetKey: 'id' });
 
 export default Proposta;
