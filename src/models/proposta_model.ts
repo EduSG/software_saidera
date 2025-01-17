@@ -1,7 +1,6 @@
 import { Sequelize, DataTypes, Model } from 'sequelize';
 
-// Extensão da classe Model para tipar as colunas
-export class User extends Model {
+export class Proposta extends Model {
   public id!: number;
   public categoria!: string;
   public readonly createdAt!: Date;
@@ -9,7 +8,7 @@ export class User extends Model {
 }
 
 export const init_proposta_model = (sequelize: Sequelize) => {
-  User.init(
+  Proposta.init(
     {
       id: {
         type: DataTypes.INTEGER,
