@@ -10,7 +10,7 @@ app.register(PropostaRoutes);
 // Inicializar o banco de dados e o servidor
 const start = async () => {
   try {
-    await sequelize.sync({ alter: true }); // Sincroniza o banco de dados
+    await sequelize.sync({ force: false });
     console.log('Banco de dados sincronizado');
     
     await app.listen({ port: 3000 });

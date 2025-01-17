@@ -5,6 +5,7 @@ const proposta_service_1 = require("../services/proposta_service");
 class PropostaController {
     static async adicionaPropostaIndividual(req, reply) {
         const { id, categoria } = req.body;
+        console.log(id, categoria);
         try {
             const user = await proposta_service_1.PropostaService.createUser(id, categoria);
             reply.status(201).send(user);

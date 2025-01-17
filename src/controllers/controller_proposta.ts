@@ -4,6 +4,7 @@ import { PropostaService } from '../services/proposta_service';
 export class PropostaController {
   static async adicionaPropostaIndividual(req: FastifyRequest, reply: FastifyReply) {
     const { id , categoria } = req.body as { id: number; categoria: string };
+    console.log(id, categoria)
     try {
       const user = await PropostaService.createUser(id, categoria);
       reply.status(201).send(user);

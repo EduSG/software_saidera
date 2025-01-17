@@ -12,7 +12,7 @@ app.register(proposta_routes_1.PropostaRoutes);
 // Inicializar o banco de dados e o servidor
 const start = async () => {
     try {
-        await database_1.default.sync({ alter: true }); // Sincroniza o banco de dados
+        await database_1.default.sync({ force: false });
         console.log('Banco de dados sincronizado');
         await app.listen({ port: 3000 });
         console.log('Servidor rodando em http://localhost:3000');

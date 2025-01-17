@@ -1,4 +1,4 @@
-import { Proposta } from "../models/proposta_model";
+import Proposta from "../models/proposta.model";
 
 export class PropostaService {
   static async createUser(id: number, categoria: string) {
