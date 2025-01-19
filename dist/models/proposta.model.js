@@ -14,7 +14,7 @@ Proposta.init({
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: false,
         allowNull: true,
     },
     data_proposta: {

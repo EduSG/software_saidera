@@ -1,11 +1,11 @@
 import Fastify from 'fastify';
 import sequelize from './config/database';
-import { PropostaRoutes } from './routes/proposta_routes';
+import { AllRoutes } from './routes/all_routes'
 
 const app = Fastify();
 
 // Registrar as rotas
-app.register(PropostaRoutes);
+app.register(AllRoutes);
 
 // Inicializar o banco de dados e o servidor
 const start = async () => {
