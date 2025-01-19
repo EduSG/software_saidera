@@ -13,7 +13,7 @@ class UsuarioController {
             reply.status(400).send({ error: error });
         }
     }
-    static async buscaTodasPropostas(req, reply) {
+    static async getUsuarios(req, reply) {
         const users = await usuario_service_1.UsuarioService.getUsuarios();
         reply.send(users);
     }

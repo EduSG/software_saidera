@@ -14,7 +14,7 @@ Clientes.init({
     },
     nome_fantasia: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     razao_social: {
         type: sequelize_1.DataTypes.STRING,

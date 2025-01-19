@@ -25,3 +25,20 @@ export interface UsuarioTypes {
   nome: string | null;
   id_gestor: number | 0;
 }
+
+export interface ClienteTypes {
+  id: number | 0;
+  nome_fantasia: string | "Desconhecido";
+  razao_social: string | "Desconhecido";
+  categoria: string | "N/A";
+  subcategoria: string | "N/A";
+  cnpj: string | "N/A";
+}
+
+export interface FornecedorTypes {
+  id: number | 0;
+  nome_fantasia: string | "Desconhecido";
+  razao_social: string | "Desconhecido";
+  categoria: string | "N/A";
+  cnpj: string | "N/A";
+}

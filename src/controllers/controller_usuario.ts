@@ -14,7 +14,7 @@ export class UsuarioController {
     } 
   }
 
-  static async buscaTodasPropostas(req: FastifyRequest, reply: FastifyReply) {
+  static async getUsuarios(req: FastifyRequest, reply: FastifyReply) {
     const users = await UsuarioService.getUsuarios();
     reply.send(users);
   }

@@ -1,7 +1,8 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/database";
+import { ClienteTypes } from "../interfaces";
 
-class Clientes extends Model {
+class Clientes extends Model<ClienteTypes> {
   public id!: number;
   public nome_fantasia!: string;
   public razao_social!: string;
@@ -18,7 +19,7 @@ Clientes.init(
     },
     nome_fantasia: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     razao_social: {
       type: DataTypes.STRING,
