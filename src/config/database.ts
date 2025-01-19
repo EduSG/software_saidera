@@ -3,7 +3,8 @@ import { Sequelize } from 'sequelize';
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: './database.sqlite', // Caminho para o banco de dados SQLite
+  storage: './database.sqlite', 
+  logging: console.log
 });
 
 export default sequelize;

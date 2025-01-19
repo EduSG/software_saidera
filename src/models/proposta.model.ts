@@ -1,11 +1,14 @@
-import { DataTypes, Model, Sequelize } from 'sequelize';
+import { DataTypes, Model, Sequelize, Optional } from 'sequelize';
 import sequelize from '../config/database';
 import { ProdutosProposta } from '../interfaces';
 import Usuarios from './usuario.model';
 import Clientes from './cliente.model';
 import Fornecedores from './fornecedor.model';
+import { PropostaAttributes } from '../interfaces';
 
-class Proposta extends Model {
+
+export interface PropostaCreationAttributes extends Optional<PropostaAttributes, 'id'> {}
+class Proposta extends Model<PropostaAttributes, PropostaCreationAttributes> {
   public id!: number;
   public data_proposta!: Date | null;
   public empresa!: number | null;
@@ -13,7 +16,7 @@ class Proposta extends Model {
   public id_lead!: number | null;
   public id_cliente!: number | null;
   public id_fornecedor!: number | null;
-  public produtos_proposta!: ProdutosProposta[] | null;
+  public produtos_proposta!: Record<string, any> | null;
 }
 
 Proposta.init(
@@ -21,7 +24,7 @@ Proposta.init(
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: false,
       allowNull: true,
     },
     data_proposta: {

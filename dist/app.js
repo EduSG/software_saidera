@@ -5,10 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fastify_1 = __importDefault(require("fastify"));
 const database_1 = __importDefault(require("./config/database"));
-const proposta_routes_1 = require("./routes/proposta_routes");
+const all_routes_1 = require("./routes/all_routes");
 const app = (0, fastify_1.default)();
 // Registrar as rotas
-app.register(proposta_routes_1.PropostaRoutes);
+app.register(all_routes_1.AllRoutes);
 // Inicializar o banco de dados e o servidor
 const start = async () => {
     try {

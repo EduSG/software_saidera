@@ -4,3 +4,24 @@ export interface ProdutosProposta {
   quantidade: number | null;
   valor_total: number | null;
 }
+
+export interface RequestBody<T> {
+  [key: string]: T,
+}
+
+export interface PropostaAttributes {
+  id: number;
+  data_proposta: Date | null;
+  empresa: number | null;
+  id_usuario: number | null;
+  id_lead: number | null;
+  id_cliente: number | null;
+  id_fornecedor: number | null;
+  produtos_proposta: Record<string, any> | null; 
+}
+
+export interface UsuarioTypes {
+  id: number | 0;
+  nome: string | null;
+  id_gestor: number | 0;
+}

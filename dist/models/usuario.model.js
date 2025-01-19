@@ -15,8 +15,12 @@ Usuarios.init({
     },
     nome: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
+    id_gestor: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: true
+    }
 }, {
     sequelize: database_1.default,
     tableName: 'usuarios',
