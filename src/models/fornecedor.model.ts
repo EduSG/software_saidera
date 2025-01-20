@@ -1,8 +1,9 @@
 
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/database";
+import { FornecedorTypes } from "../interfaces";
 
-class Fornecedores extends Model {
+class Fornecedores extends Model<FornecedorTypes> {
   public id!: number;
   public nome_fantasia!: string;
   public razao_social!: string;

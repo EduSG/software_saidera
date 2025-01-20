@@ -1,18 +1,17 @@
-import Usuarios from "../models/usuario.model";
+import { UsuarioRepository } from "../repositorys/usuario_repository";
 import { RequestBody, UsuarioTypes } from "../interfaces";
 
-export class UsuarioService {
-  static async createLote(dados: RequestBody<UsuarioTypes>) {
-    
-    const promises = Object.values(dados).map((usuario) =>
-      Usuarios.create(usuario),
-    );
-    await Promise.all(promises);
+const usuario_repo = new UsuarioRepository({});
 
-    return;
+export class UsuarioService {
+
+  static async createLote(dados: RequestBody<UsuarioTypes>) {
+    return usuario_repo.createLote(dados); 
   }
 
   static async getUsuarios() {
-    return Usuarios.findAll();
+    return usuario_repo.getUsuarios();
   }
 }
+
+
