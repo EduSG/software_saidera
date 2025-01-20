@@ -1,3 +1,10 @@
+export interface ProdutosLead{
+  id_fabricante: number | null;
+  valor: number | null;
+  quantidade: number | null;
+  valor_total: number | null;
+}
+
 export interface ProdutosProposta {
   id_fabricante: number | null;
   valor: number | null;
@@ -18,6 +25,17 @@ export interface PropostaAttributes {
   id_cliente: number | null;
   id_fornecedor: number | null;
   produtos_proposta: Record<string, any> | null; 
+}
+
+export interface LeadAttributes {
+  id: number;
+  data_lead: Date | null;
+  empresa: number | null;
+  id_usuario: number | null;
+  origem: string | null;
+  id_cliente: number | null;
+  id_fornecedor: number | null;
+  produtos_lead: Record<string, any> | null; 
 }
 
 export interface UsuarioTypes {

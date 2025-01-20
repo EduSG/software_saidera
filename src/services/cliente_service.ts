@@ -1,19 +1,16 @@
+import { ClienteRepository } from "../repositorys/cliente_repository";
 import { RequestBody, ClienteTypes } from "../interfaces";
-import Clientes from "../models/cliente.model";
+
+const cliente_repo = new ClienteRepository({});
 
 export class ClienteService {
-  static async createLote(dados: RequestBody<ClienteTypes>) {
-    
-    const promises = Object.values(dados).map((cliente) =>
-      Clientes.create(cliente),
-    );
-    await Promise.all(promises);
 
-    return;
+  static async createLote(dados: RequestBody<ClienteTypes>) {
+    return cliente_repo.createLote(dados); 
   }
 
   static async getClientes() {
-    return Clientes.findAll();
+    return cliente_repo.getClientes();
   }
 }
 
