@@ -1,19 +1,17 @@
 import { RequestBody, FornecedorTypes } from "../interfaces";
-import Fornecedores from "../models/fornecedor.model";
+import { FornecedorRepository } from "../repositorys/fornecedore_repository";
+
+const fornecedor_repo = new FornecedorRepository({});
 
 export class FornecedorService {
-  static async createLote(dados: RequestBody<FornecedorTypes>) {
-    
-    const promises = Object.values(dados).map((fornecedor) =>
-      Fornecedores.create(fornecedor),
-    );
-    await Promise.all(promises);
 
-    return;
+  static async createLote(dados: RequestBody<FornecedorTypes>) {
+    return fornecedor_repo.createLote(dados); 
   }
 
   static async getFornecedores() {
-    return Fornecedores.findAll();
+    return fornecedor_repo.getFornecedores();
   }
 }
+
 

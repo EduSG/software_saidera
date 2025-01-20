@@ -1,18 +1,14 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FornecedorService = void 0;
-const fornecedor_model_1 = __importDefault(require("../models/fornecedor.model"));
+const fornecedore_repository_1 = require("../repositorys/fornecedore_repository");
+const fornecedor_repo = new fornecedore_repository_1.FornecedorRepository({});
 class FornecedorService {
     static async createLote(dados) {
-        const promises = Object.values(dados).map((fornecedor) => fornecedor_model_1.default.create(fornecedor));
-        await Promise.all(promises);
-        return;
+        return fornecedor_repo.createLote(dados);
     }
     static async getFornecedores() {
-        return fornecedor_model_1.default.findAll();
+        return fornecedor_repo.getFornecedores();
     }
 }
 exports.FornecedorService = FornecedorService;
