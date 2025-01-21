@@ -12,7 +12,7 @@ export class LeadService {
     return;
   }
 
-  static async getPropostas() {
+  static async getLeads() {
     return Lead.findAll();
   }
 }

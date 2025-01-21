@@ -8,7 +8,7 @@ import Proposta from './proposta.model';
 import { PedidoAttributes } from '../interfaces';
 
 export interface PedidoCreationAttributes extends Optional<PedidoAttributes, 'id'> {}
-class Proposta extends Model<PedidoAttributes, PedidoCreationAttributes> {
+class Pedido extends Model<PedidoAttributes, PedidoCreationAttributes> {
   public id!: number;
   public data_proposta!: Date | null;
   public empresa!: number | null;
@@ -20,7 +20,7 @@ class Proposta extends Model<PedidoAttributes, PedidoCreationAttributes> {
   public produtos_pedido!: Record<string, any> | null;
 }
 
-Proposta.init(
+Pedido.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -69,9 +69,10 @@ Proposta.init(
 );
 
 // Relacionamentos
-Proposta.belongsTo(Usuarios, { foreignKey: 'id_usuario', targetKey: 'id' });
-Proposta.belongsTo(Clientes, { foreignKey: 'id_cliente', targetKey: 'id' });
-Proposta.belongsTo(Lead, {foreignKey: 'id_lead', targetKey: 'id'})
-Proposta.belongsTo(Fornecedores, { foreignKey: 'id_fornecedor', targetKey: 'id' });
+Pedido.belongsTo(Usuarios, { foreignKey: 'id_usuario', targetKey: 'id' });
+Pedido.belongsTo(Clientes, { foreignKey: 'id_cliente', targetKey: 'id' });
+Pedido.belongsTo(Lead, {foreignKey: 'id_lead', targetKey: 'id'})
+Pedido.belongsTo(Proposta, {foreignKey: 'id_proposta', targetKey: 'id'})
+Pedido.belongsTo(Fornecedores, { foreignKey: 'id_fornecedor', targetKey: 'id' });
 
-export default Proposta;
+export default Pedido;

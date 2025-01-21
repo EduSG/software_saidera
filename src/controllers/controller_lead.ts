@@ -16,7 +16,7 @@ export class LeadController {
   }
 
   static async buscaTodasLeads(req: FastifyRequest, reply: FastifyReply) {
-    const users = await getPropostas();
+    const users = await LeadService.getLeads();
     reply.send(users);
   }
 }

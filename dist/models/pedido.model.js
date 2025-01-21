@@ -9,9 +9,10 @@ const usuario_model_1 = __importDefault(require("./usuario.model"));
 const cliente_model_1 = __importDefault(require("./cliente.model"));
 const fornecedor_model_1 = __importDefault(require("./fornecedor.model"));
 const lead_model_1 = __importDefault(require("./lead.model"));
-class Proposta extends sequelize_1.Model {
+const proposta_model_1 = __importDefault(require("./proposta.model"));
+class Pedido extends sequelize_1.Model {
 }
-Proposta.init({
+Pedido.init({
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
@@ -34,6 +35,10 @@ Proposta.init({
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
+    id_proposta: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: true,
+    },
     id_cliente: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
@@ -42,7 +47,7 @@ Proposta.init({
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
-    produtos_proposta: {
+    produtos_pedido: {
         type: sequelize_1.DataTypes.JSONB,
         allowNull: true,
     },
@@ -52,8 +57,9 @@ Proposta.init({
     timestamps: false,
 });
 // Relacionamentos
-Proposta.belongsTo(usuario_model_1.default, { foreignKey: 'id_usuario', targetKey: 'id' });
-Proposta.belongsTo(cliente_model_1.default, { foreignKey: 'id_cliente', targetKey: 'id' });
-Proposta.belongsTo(lead_model_1.default, { foreignKey: 'id_lead', targetKey: 'id' });
-Proposta.belongsTo(fornecedor_model_1.default, { foreignKey: 'id_fornecedor', targetKey: 'id' });
-exports.default = Proposta;
+Pedido.belongsTo(usuario_model_1.default, { foreignKey: 'id_usuario', targetKey: 'id' });
+Pedido.belongsTo(cliente_model_1.default, { foreignKey: 'id_cliente', targetKey: 'id' });
+Pedido.belongsTo(lead_model_1.default, { foreignKey: 'id_lead', targetKey: 'id' });
+Pedido.belongsTo(proposta_model_1.default, { foreignKey: 'id_proposta', targetKey: 'id' });
+Pedido.belongsTo(fornecedor_model_1.default, { foreignKey: 'id_fornecedor', targetKey: 'id' });
+exports.default = Pedido;
