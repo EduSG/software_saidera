@@ -71,5 +71,7 @@ export interface FornecedorTypes {
   nome_fantasia: string | "Desconhecido";
   razao_social: string | "Desconhecido";
   categoria: string | "N/A";
+  id_gestor_produto: number | 145;
+  produto_estrategico: boolean;
   cnpj: string | "N/A";
 }

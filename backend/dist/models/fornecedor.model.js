@@ -24,6 +24,14 @@ Fornecedores.init({
         type: sequelize_1.DataTypes.STRING,
         allowNull: true,
     },
+    id_gestor_produto: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: true,
+    },
+    produto_estrategico: {
+        type: sequelize_1.DataTypes.BOOLEAN,
+        allowNull: true,
+    },
     cnpj: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: true,

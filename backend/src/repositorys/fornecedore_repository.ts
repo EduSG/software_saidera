@@ -20,12 +20,30 @@ export class FornecedorRepository {
     }
   }
 
-  public async createLote(dados: RequestBody<FornecedorTypes>) {
-    const promises = Object.values(dados).map((fornecedor) =>
-      Fornecedores.create(fornecedor),
-    );
-    await Promise.all(promises);
+public async createLote(dados: RequestBody<FornecedorTypes>) {
+  console.log("Dados recebidos:", dados);
 
-    return;
+  const fornecedoresData = Object.values(dados).map((fornecedor: FornecedorTypes) => ({
+    id: +fornecedor.id,
+    nome_fantasia: fornecedor.nome_fantasia || "Desconhecido",
+    razao_social: fornecedor.razao_social || "Desconhecido",
+    categoria: fornecedor.categoria || "N/A",
+    id_gestor_produto: fornecedor.id_gestor_produto || 145,
+    produto_estrategico: fornecedor.produto_estrategico || false,
+    cnpj: fornecedor.cnpj || "N/A",
+  }));
+
+  console.log("Dados processados para o banco:", fornecedoresData);
+
+  try {
+    await Fornecedores.bulkCreate(fornecedoresData, { validate: true });
+    console.log("Fornecedores inseridos com sucesso!");
+  } catch (error) {
+    console.error("Erro ao inserir fornecedores:", error);
+    throw error;
   }
+
+  return;
+}
+
 }
