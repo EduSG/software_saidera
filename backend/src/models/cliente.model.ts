@@ -1,6 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/database";
 import { ClienteTypes } from "../interfaces";
+import Usuarios from "./usuario.model";
 
 class Clientes extends Model<ClienteTypes> {
   public id!: number;
@@ -9,6 +10,7 @@ class Clientes extends Model<ClienteTypes> {
   public categoria!: string | "N/A";
   public subcategoria!: string | "N/A";
   public cnpj!: string | "N/A";
+  public id_vendedor!: number;
 }
 
 Clientes.init(
@@ -37,6 +39,10 @@ Clientes.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    id_vendedor: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
   },
   {
     sequelize,
@@ -44,5 +50,6 @@ Clientes.init(
     timestamps: false,
   },
 );
+Clientes.belongsTo(Usuarios, { foreignKey: 'id_vendedor', targetKey: 'id' });
 
 export default Clientes;
