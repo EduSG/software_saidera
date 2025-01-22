@@ -63,6 +63,7 @@ export interface ClienteTypes {
   categoria: string | "N/A";
   subcategoria: string | "N/A";
   cnpj: string | "N/A";
+  id_vendedor: number | 0;
 }
 
 export interface FornecedorTypes {
