@@ -12,19 +12,25 @@ export interface ProdutosProposta {
   valor_total: number | null;
 }
 
+export interface ProdutosPedido{
+  id_fabricante: number | null;
+  valor: number | null;
+  quantidade: number | null;
+  valor_total: number | null;
+}
+
 export interface RequestBody<T> {
   [key: string]: T,
 }
 
 export interface PedidoAttributes {
   id: number;
-  data_proposta: Date | null;
+  data_pedido: Date | null;
   empresa: number | null;
-  id_usuario: number | null;
-  id_lead: number | null;
+  id_vendedor: number | null;
+  origem: string | null;
   id_proposta: number | null;
   id_cliente: number | null;
-  id_fornecedor: number | null;
   produtos_pedido: Record<string, any> | null; 
 }
 
@@ -32,7 +38,7 @@ export interface PropostaAttributes {
   id: number;
   data_proposta: Date | null;
   empresa: number | null;
-  id_usuario: number | null;
+  id_vendedor: number | null;
   id_lead: number | null;
   id_cliente: number | null;
   id_fornecedor: number | null;
