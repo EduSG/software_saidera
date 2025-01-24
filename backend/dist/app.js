@@ -3,23 +3,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const fastify_1 = __importDefault(require("fastify"));
-const database_1 = __importDefault(require("./config/database"));
+const express_1 = __importDefault(require("express"));
 const all_routes_1 = require("./routes/all_routes");
-// Criar a instância do Fastify com limite de payload ajustado
-const app = (0, fastify_1.default)({
-    bodyLimit: 200 * 1024 * 1024, // 200 MB em bytes
-});
-app.register(all_routes_1.AllRoutes);
+// Criar a instância do Express
+const app = (0, express_1.default)();
+// Configurar o limite de payload para 200 MB
+app.use(express_1.default.json({ limit: '200mb' }));
+app.use(express_1.default.urlencoded({ extended: true, limit: '200mb' }));
+// Registrar as rotas
+app.use(all_routes_1.AllRoutes);
+// Função para iniciar o servidor
 const start = async () => {
     try {
-        await database_1.default.sync({ force: false });
+        // Sincronizar o banco de dados
+        // await sequelize.sync({ force: false });
         console.log('Banco de dados sincronizado');
-        await app.listen({ port: 3870 });
-        console.log('Servidor rodando em http://localhost:3870');
+        // Iniciar o servidor na porta 3870
+        app.listen(3870, '0.0.0.0', () => {
+            console.log('Servidor rodando em http://0.0.0.0:3870');
+        });
     }
     catch (error) {
         console.error('Erro ao iniciar o servidor:', error);
     }
 };
+// Iniciar a aplicação
 start();

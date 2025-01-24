@@ -13,6 +13,7 @@ class UsuarioRepository {
     async getUsuarios() {
         try {
             const usuarios = await usuario_model_1.default.findAll();
+            console.log(usuarios);
             return usuarios.map((usuario) => usuario.toJSON());
         }
         catch (error) {
