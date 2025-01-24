@@ -5,20 +5,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const database_1 = __importDefault(require("../config/database"));
-const usuario_model_1 = __importDefault(require("./usuario.model"));
-const cliente_model_1 = __importDefault(require("./cliente.model"));
-const fornecedor_model_1 = __importDefault(require("./fornecedor.model"));
-const lead_model_1 = __importDefault(require("./lead.model"));
-class Proposta extends sequelize_1.Model {
+const pedido_model_1 = __importDefault(require("./pedido.model"));
+class ProdutoPedido extends sequelize_1.Model {
 }
-Proposta.init({
+ProdutoPedido.init({
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: false,
         allowNull: true,
     },
-    data_proposta: {
+    data_pedido: {
         type: sequelize_1.DataTypes.DATE,
         allowNull: true,
     },
@@ -26,11 +23,15 @@ Proposta.init({
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
+    id_pedido: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: true,
+    },
     id_vendedor: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
-    id_lead: {
+    id_fornecedor: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
@@ -38,18 +39,23 @@ Proposta.init({
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
-    produtos_proposta: {
-        type: sequelize_1.DataTypes.JSONB,
+    valor_total: {
+        type: sequelize_1.DataTypes.FLOAT,
+        allowNull: true,
+    },
+    valor_unitario: {
+        type: sequelize_1.DataTypes.FLOAT,
+        allowNull: true,
+    },
+    quantidade: {
+        type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
 }, {
     sequelize: database_1.default,
-    tableName: 'propostas',
+    tableName: 'produto_pedido',
     timestamps: false,
 });
 // Relacionamentos
-Proposta.belongsTo(usuario_model_1.default, { foreignKey: 'id_usuario', targetKey: 'id' });
-Proposta.belongsTo(cliente_model_1.default, { foreignKey: 'id_cliente', targetKey: 'id' });
-Proposta.belongsTo(lead_model_1.default, { foreignKey: 'id_lead', targetKey: 'id' });
-Proposta.belongsTo(fornecedor_model_1.default, { foreignKey: 'id_fornecedor', targetKey: 'id' });
-exports.default = Proposta;
+ProdutoPedido.belongsTo(pedido_model_1.default, { foreignKey: 'id_pedido', targetKey: 'id' });
+exports.default = ProdutoPedido;

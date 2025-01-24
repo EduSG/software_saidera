@@ -36,7 +36,7 @@ Proposta.init(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    id_usuario: {
+    id_vendedor: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
@@ -47,11 +47,7 @@ Proposta.init(
     id_cliente: {
       type: DataTypes.INTEGER,
       allowNull: true,
-    },
-    id_fornecedor: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
+    }, 
     produtos_proposta: {
       type: DataTypes.JSONB,
       allowNull: true,

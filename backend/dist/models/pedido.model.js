@@ -19,7 +19,7 @@ Pedido.init({
         autoIncrement: false,
         allowNull: true,
     },
-    data_proposta: {
+    data_pedido: {
         type: sequelize_1.DataTypes.DATE,
         allowNull: true,
     },
@@ -27,12 +27,12 @@ Pedido.init({
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
-    id_usuario: {
+    id_vendedor: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
-    id_lead: {
-        type: sequelize_1.DataTypes.INTEGER,
+    origem: {
+        type: sequelize_1.DataTypes.STRING,
         allowNull: true,
     },
     id_proposta: {
@@ -43,17 +43,13 @@ Pedido.init({
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
-    id_fornecedor: {
-        type: sequelize_1.DataTypes.INTEGER,
-        allowNull: true,
-    },
     produtos_pedido: {
         type: sequelize_1.DataTypes.JSONB,
         allowNull: true,
     },
 }, {
     sequelize: database_1.default,
-    tableName: 'propostas',
+    tableName: 'pedidos',
     timestamps: false,
 });
 // Relacionamentos

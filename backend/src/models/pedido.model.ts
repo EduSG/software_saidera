@@ -59,7 +59,7 @@ Pedido.init(
   },
   {
     sequelize,
-    tableName: 'propostas',
+    tableName: 'pedidos',
     timestamps: false,
   }
 );
