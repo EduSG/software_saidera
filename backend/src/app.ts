@@ -2,6 +2,7 @@ import express from 'express';
 import sequelize from './config/database';
 import { AllRoutes } from './routes/all_routes';
 import { permission_route } from './routes/permission_routes';
+import defineAssociations from './models/pr_associations';
 
 // Criar a instância do Express
 const app = express();
@@ -9,6 +10,8 @@ const app = express();
 // Configurar o limite de payload para 200 MB
 app.use(express.json({ limit: '200mb' }));
 app.use(express.urlencoded({ extended: true, limit: '200mb' }));
+
+defineAssociations();
 
 // Registrar as rotas
 app.use(AllRoutes);

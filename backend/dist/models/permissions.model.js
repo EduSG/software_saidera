@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // src/models/permissions.model.ts
 const sequelize_1 = require("sequelize");
 const database_1 = __importDefault(require("../config/database"));
-const roles_model_1 = __importDefault(require("./roles.model"));
 class Permissions extends sequelize_1.Model {
 }
 Permissions.init({
@@ -21,14 +20,8 @@ Permissions.init({
         unique: true,
     },
 }, {
-    sequelize: database_1.default,
+    sequelize: database_1.default, // Passando a instância do Sequelize
     tableName: 'permissions',
     timestamps: false,
-});
-Permissions.belongsToMany(roles_model_1.default, {
-    through: 'role_permissions',
-    foreignKey: 'permission_id',
-    otherKey: 'role_id',
-    as: 'Roles',
 });
 exports.default = Permissions;
