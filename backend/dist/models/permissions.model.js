@@ -3,36 +3,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// src/models/usuarios.model.ts
+// src/models/permissions.model.ts
 const sequelize_1 = require("sequelize");
 const database_1 = __importDefault(require("../config/database"));
-class Usuarios extends sequelize_1.Model {
+const roles_model_1 = __importDefault(require("./roles.model"));
+class Permissions extends sequelize_1.Model {
 }
-Usuarios.init({
+Permissions.init({
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
-    nome: {
+    name: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: true,
-    },
-    id_gestor: {
-        type: sequelize_1.DataTypes.INTEGER,
-        allowNull: true,
-    },
-    role_id: {
-        type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
-        references: {
-            model: 'roles', // Nome da tabela de roles
-            key: 'id',
-        },
+        unique: true,
     },
 }, {
     sequelize: database_1.default,
-    tableName: 'usuarios',
+    tableName: 'permissions',
     timestamps: false,
 });
-exports.default = Usuarios;
+Permissions.belongsToMany(roles_model_1.default, {
+    through: 'role_permissions',
+    foreignKey: 'permission_id',
+    otherKey: 'role_id',
+    as: 'Roles',
+});
+exports.default = Permissions;

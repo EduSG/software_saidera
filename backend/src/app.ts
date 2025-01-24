@@ -1,6 +1,7 @@
 import express from 'express';
 import sequelize from './config/database';
 import { AllRoutes } from './routes/all_routes';
+import { permission_route } from './routes/permission_routes';
 
 // Criar a instância do Express
 const app = express();
@@ -11,6 +12,7 @@ app.use(express.urlencoded({ extended: true, limit: '200mb' }));
 
 // Registrar as rotas
 app.use(AllRoutes);
+app.use('/permission', permission_route);
 
 // Função para iniciar o servidor
 const start = async () => {

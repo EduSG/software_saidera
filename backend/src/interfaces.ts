@@ -23,6 +23,19 @@ export interface RequestBody<T> {
   [key: string]: T,
 }
 
+export interface ProdutoPedidoAttributes {
+  id: number;
+  data_pedido: Date;
+  empresa: number;
+  id_pedido: number;
+  id_vendedor: number;
+  id_fornecedor: number;
+  id_cliente: number;
+  valor_total: number;
+  valor_unitario: number;
+  quantidade: number;
+}
+
 export interface PedidoAttributes {
   id: number;
   data_pedido: Date | null;
@@ -34,6 +47,19 @@ export interface PedidoAttributes {
   produtos_pedido: Record<string, any> | null; 
 }
 
+export interface ProdutoPropostaAttributes {
+  id: number;
+  data_proposta: Date;
+  empresa: number;
+  id_proposta: number;
+  id_vendedor: number;
+  id_fornecedor: number;
+  id_cliente: number;
+  valor_total: number;
+  valor_unitario: number;
+  quantidade: number;
+}
+
 export interface PropostaAttributes {
   id: number;
   data_proposta: Date | null;
@@ -41,8 +67,20 @@ export interface PropostaAttributes {
   id_vendedor: number | null;
   id_lead: number | null;
   id_cliente: number | null;
-  id_fornecedor: number | null;
   produtos_proposta: Record<string, any> | null; 
+}
+
+export interface ProdutoLeadAttributes {
+  id: number;
+  data_lead: Date;
+  empresa: number;
+  id_lead: number;
+  id_vendedor: number;
+  id_fornecedor: number;
+  id_cliente: number;
+  valor_total: number;
+  valor_unitario: number;
+  quantidade: number;
 }
 
 export interface LeadAttributes {
@@ -60,6 +98,7 @@ export interface UsuarioTypes {
   id: number | 0;
   nome: string | null;
   id_gestor: number | 0;
+  role_id: number;
 }
 
 export interface ClienteTypes {
@@ -81,3 +120,4 @@ export interface FornecedorTypes {
   produto_estrategico: boolean;
   cnpj: string | "N/A";
 }
+
