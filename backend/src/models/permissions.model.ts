@@ -7,6 +7,7 @@ class Permissions extends Model {
   public id!: number;
   public name!: string;
 
+  // Relacionamento com Roles
   public readonly Roles?: Roles[];
 }
 
@@ -24,17 +25,11 @@ Permissions.init(
     },
   },
   {
-    sequelize,
+    sequelize, // Passando a instância do Sequelize
     tableName: 'permissions',
     timestamps: false,
   }
 );
 
-Permissions.belongsToMany(Roles, {
-  through: 'role_permissions',
-  foreignKey: 'permission_id',
-  otherKey: 'role_id',
-  as: 'Roles', 
-});
 
 export default Permissions;

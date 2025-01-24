@@ -27,7 +27,7 @@ RolePermissions.init(
     },
   },
   {
-    sequelize,
+    sequelize, // Passando a instância do Sequelize
     tableName: 'role_permissions',
     timestamps: false,
   }

@@ -1,4 +1,3 @@
-// src/models/roles.model.ts
 import { DataTypes, Model } from 'sequelize';
 import sequelize from '../config/database';
 import Permissions from './permissions.model';
@@ -25,18 +24,11 @@ Roles.init(
     },
   },
   {
-    sequelize,
+    sequelize, // Passando a instância do Sequelize
     tableName: 'roles',
     timestamps: false,
   }
 );
 
-// Definindo o relacionamento
-Roles.belongsToMany(Permissions, {
-  through: 'role_permissions',
-  foreignKey: 'role_id',
-  otherKey: 'permission_id',
-  as: 'Permissions', 
-});
 
 export default Roles;
