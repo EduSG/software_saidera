@@ -4,7 +4,7 @@ services:
   app:
     build: .
     ports:
-      - "3870:3870"
+      - "2900:2900"
     volumes:
       - .:/app
     command: npm run start

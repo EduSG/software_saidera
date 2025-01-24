@@ -11,6 +11,7 @@ export class UsuarioRepository {
   public async getUsuarios(): Promise<UsuarioTypes[]> {
     try {
       const usuarios = await Usuarios.findAll();
+      console.log(usuarios)
       return usuarios.map((usuario: any) => usuario.toJSON()) as UsuarioTypes[];
     } catch (error) {
       console.error("Erro ao adicionar usuario:", error);
