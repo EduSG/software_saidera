@@ -28,7 +28,7 @@ Pedido.init(
       autoIncrement: false,
       allowNull: true,
     },
-    data_proposta: {
+    data_pedido: {
       type: DataTypes.DATE,
       allowNull: true,
     },
@@ -36,12 +36,12 @@ Pedido.init(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    id_usuario: {
+    id_vendedor: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    id_lead: {
-      type: DataTypes.INTEGER,
+    origem: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
     id_proposta: {
@@ -49,10 +49,6 @@ Pedido.init(
       allowNull: true,
     },
     id_cliente: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    id_fornecedor: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
