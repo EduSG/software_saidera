@@ -21,7 +21,7 @@ app.use('/permission', permission_route);
 const start = async () => {
   try {
     // Sincronizar o banco de dados
-    // await sequelize.sync({ force: false });
+     await sequelize.sync({ force: false });
     console.log('Banco de dados sincronizado');
 
     // Iniciar o servidor na porta 3870

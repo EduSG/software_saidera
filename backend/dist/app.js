@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const database_1 = __importDefault(require("./config/database"));
 const all_routes_1 = require("./routes/all_routes");
 const permission_routes_1 = require("./routes/permission_routes");
 const pr_associations_1 = __importDefault(require("./models/pr_associations"));
@@ -20,7 +21,7 @@ app.use('/permission', permission_routes_1.permission_route);
 const start = async () => {
     try {
         // Sincronizar o banco de dados
-        // await sequelize.sync({ force: false });
+        await database_1.default.sync({ force: false });
         console.log('Banco de dados sincronizado');
         // Iniciar o servidor na porta 3870
         app.listen(3870, '0.0.0.0', () => {

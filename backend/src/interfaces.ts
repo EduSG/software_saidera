@@ -1,22 +1,22 @@
 export interface ProdutosLead{
-  id_fabricante: number | null;
-  valor: number | null;
-  quantidade: number | null;
-  valor_total: number | null;
+  id_fabricante: number;
+  valor: number;
+  quantidade: number;
+  valor_total: number;
 }
 
 export interface ProdutosProposta {
-  id_fabricante: number | null;
-  valor: number | null;
-  quantidade: number | null;
-  valor_total: number | null;
+  id_fabricante: number;
+  valor: number;
+  quantidade: number;
+  valor_total: number;
 }
 
 export interface ProdutosPedido{
-  id_fabricante: number | null;
-  valor: number | null;
-  quantidade: number | null;
-  valor_total: number | null;
+  id_fabricante: number;
+  valor: number;
+  quantidade: number;
+  valor_total: number;
 }
 
 export interface RequestBody<T> {
@@ -38,13 +38,13 @@ export interface ProdutoPedidoAttributes {
 
 export interface PedidoAttributes {
   id: number;
-  data_pedido: Date | null;
-  empresa: number | null;
-  id_vendedor: number | null;
-  origem: string | null;
-  id_proposta: number | null;
-  id_cliente: number | null;
-  produtos_pedido: Record<string, any> | null; 
+  data_pedido: Date;
+  empresa: number;
+  id_vendedor: number;
+  origem: string;
+  id_proposta: number;
+  id_cliente: number;
+  produtos_pedido: Record<string, any>; 
 }
 
 export interface ProdutoPropostaAttributes {
@@ -62,12 +62,12 @@ export interface ProdutoPropostaAttributes {
 
 export interface PropostaAttributes {
   id: number;
-  data_proposta: Date | null;
-  empresa: number | null;
-  id_vendedor: number | null;
-  id_lead: number | null;
-  id_cliente: number | null;
-  produtos_proposta: Record<string, any> | null; 
+  data_proposta: Date;
+  empresa: number;
+  id_vendedor: number;
+  id_lead: number;
+  id_cliente: number;
+  produtos_proposta: Record<string, any>; 
 }
 
 export interface ProdutoLeadAttributes {
@@ -85,18 +85,18 @@ export interface ProdutoLeadAttributes {
 
 export interface LeadAttributes {
   id: number;
-  data_lead: Date | null;
-  empresa: number | null;
-  id_usuario: number | null;
-  origem: string | null;
-  id_cliente: number | null;
-  id_fornecedor: number | null;
-  produtos_lead: Record<string, any> | null; 
+  data_lead: Date;
+  empresa: number;
+  id_usuario: number;
+  origem: string;
+  id_cliente: number;
+  id_fornecedor: number;
+  produtos_lead: Record<string, any>; 
 }
 
 export interface UsuarioTypes {
   id: number | 0;
-  nome: string | null;
+  nome: string;
   id_gestor: number | 0;
   role_id: number;
 }
