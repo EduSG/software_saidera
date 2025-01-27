@@ -7,7 +7,6 @@ class Usuarios extends Model<UsuarioTypes> {
   public id!: number;
   public nome!: string;
   public id_gestor!: number;
-  public role_id!: number; 
 }
 
 Usuarios.init(
@@ -24,14 +23,6 @@ Usuarios.init(
     id_gestor: {
       type: DataTypes.INTEGER,
       allowNull: true,
-    },
-    role_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'roles', // Nome da tabela de roles
-        key: 'id',
-      },
     },
   },
   {

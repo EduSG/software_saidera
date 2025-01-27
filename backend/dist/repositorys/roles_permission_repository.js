@@ -43,6 +43,7 @@ class RolePermissionRepository {
     async updateRole(id, name) {
         try {
             const [affectedRows] = await roles_model_1.default.update({ name }, { where: { id } });
+            console.log(affectedRows);
             if (affectedRows > 0)
                 return await roles_model_1.default.findByPk(id);
             return null;

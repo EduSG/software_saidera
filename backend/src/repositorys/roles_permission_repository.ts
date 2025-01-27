@@ -38,6 +38,7 @@ export class RolePermissionRepository {
   public async updateRole(id: number, name: string): Promise<Roles | null> {
     try {
       const [affectedRows] = await Roles.update({ name }, { where: { id } });
+      console.log(affectedRows)
       if (affectedRows > 0) return await Roles.findByPk(id);
       return null;
     } catch (error) {

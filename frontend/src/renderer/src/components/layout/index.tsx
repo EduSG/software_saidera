@@ -10,7 +10,7 @@ export function Layout() {
   return (
     <Collapsible.Root
       defaultOpen
-      className='h-screen w-screen bg-gray-950 text-slate-100 flex'
+      className='h-screen w-screen text-gray-950 bg-slate-100 flex'
       onOpenChange={setIsSideBarOpen}
     >
       <Sidebar />

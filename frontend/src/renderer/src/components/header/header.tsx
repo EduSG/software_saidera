@@ -13,25 +13,25 @@ export function Header({ isSidebarOpen }: HeaderProps){
     <div
       id='header'
       className={clsx(
-        'flex items-center gap-4 leading-tight relative border-b border-slate-600 transition-all duration-200 py-[1.125rem] px-6',
+        'flex items-center gap-4 leading-tight relative border-b border-gray-300 transition-all duration-200 py-[1.125rem] px-6',
         {
           'pl-24': !isSidebarOpen && isMacOS,
           'w-screen': !isSidebarOpen,
-          'w-[calc(100vw-220px)]': isSidebarOpen
+          'w-[calc(100vw-300px)]': isSidebarOpen
         }
       )}
     >
       <Collapsible.Trigger
-        className={clsx('h-7 w-7 text-grey-800 bg-gray-100 p-1 rounded-full relative z-[99] top-9 left-0', {
+        className={clsx('h-7 w-7 text-grey-800 bg-orange-500 p-1 rounded-full relative z-[99]  left-0', {
           hidden: isSidebarOpen,
           block: !isSidebarOpen
         })}
       >
-        <CaretRight className='w-5 h-5' />
+        <CaretRight className='w-5 h-5 bg-orange-500 text-white' />
       </Collapsible.Trigger>
 
       <>
-        <h1 className='text-white font-bold'>Dev Clientes</h1>
+        <h1 className='text-slate-900 font-bold'>SFS - Sistema Filemaker SQL</h1>
       </>
     </div>
   )

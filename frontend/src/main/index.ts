@@ -7,11 +7,11 @@ import { createFileRoute, createURLRoute } from 'electron-router-dom'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 900,
-    height: 670,
+    width: 1100,
+    height: 800,
     show: false,
     autoHideMenuBar: true,
-    backgroundColor: "#030712",
+    backgroundColor: "#d8e3f1",
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),

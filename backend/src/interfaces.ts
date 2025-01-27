@@ -94,11 +94,18 @@ export interface LeadAttributes {
   produtos_lead: Record<string, any>; 
 }
 
+export interface AcessoTypes {
+  id: number;
+  nome: string;
+  email: string;
+  senha: string;
+  role_id: number;
+}
+
 export interface UsuarioTypes {
   id: number | 0;
   nome: string;
   id_gestor: number | 0;
-  role_id: number;
 }
 
 export interface ClienteTypes {
