@@ -24,4 +24,14 @@ export class UsuarioController {
       res.status(500).send({ error: error.message }); // Trate erros internos do servidor
     }
   }
+
+  //static async updateUsuario(req: Request, res: Response) {
+  //  try{
+  //    const { id } = req.params;
+  //    const usuario = await UsuarioService.updateUsuario(id);
+  //    console.log(usuario)
+  //  }catch(err: any){
+  //
+  //  }
+  //}
 }

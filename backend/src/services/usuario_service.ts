@@ -12,6 +12,7 @@ export class UsuarioService {
   static async getUsuarios() {
     return usuario_repo.getUsuarios();
   }
+
 }
 
 

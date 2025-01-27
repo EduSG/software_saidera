@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // src/models/usuarios.model.ts
 const sequelize_1 = require("sequelize");
 const database_1 = __importDefault(require("../config/database"));
-class Usuarios extends sequelize_1.Model {
+class Acesso extends sequelize_1.Model {
 }
-Usuarios.init({
+Acesso.init({
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
@@ -18,13 +18,25 @@ Usuarios.init({
         type: sequelize_1.DataTypes.STRING,
         allowNull: true,
     },
-    id_gestor: {
-        type: sequelize_1.DataTypes.INTEGER,
+    email: {
+        type: sequelize_1.DataTypes.STRING,
         allowNull: true,
+    },
+    senha: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false,
+    },
+    role_id: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'roles', // Nome da tabela de roles
+            key: 'id',
+        },
     },
 }, {
     sequelize: database_1.default,
-    tableName: 'usuarios',
+    tableName: 'acessos',
     timestamps: false,
 });
-exports.default = Usuarios;
+exports.default = Acesso;
