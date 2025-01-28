@@ -23,7 +23,7 @@ export function Sidebar() {
 
       <div
         className={clsx(
-          'flex-1 flex flex-col h-full gap-8 w-[300px] transition-opacity group-data-[state=open]:opacity-100 group-data-[state=closed]:opacity-0 duration-200',
+          'flex-1 flex flex-col h-full gap-8 w-[250px] transition-opacity group-data-[state=open]:opacity-100 group-data-[state=closed]:opacity-0 duration-200',
           {
             'pt-6': !isMacOS
           }
@@ -44,6 +44,8 @@ export function Sidebar() {
             <LinkContent to="/produtos" children="Dashboard Produtos" />
 
             <LinkContent to="/usuarios" children="Gerenciamento de usuários" />
+
+            <LinkContent to='/login' children='login' />
           </section>
         </nav>
       </div>

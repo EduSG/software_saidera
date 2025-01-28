@@ -17,7 +17,7 @@ export function Header({ isSidebarOpen }: HeaderProps){
         {
           'pl-24': !isSidebarOpen && isMacOS,
           'w-screen': !isSidebarOpen,
-          'w-[calc(100vw-300px)]': isSidebarOpen
+          'w-[calc(100vw-250px)]': isSidebarOpen
         }
       )}
     >
