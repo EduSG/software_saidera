@@ -36,4 +36,30 @@ i
       throw new Error("Não foi possível buscar os acessos.");
     }
   }
+
+  public async updateAcesso(id: number, dados: Partial<AcessoTypes>): Promise<AcessoTypes | null>{
+    try{
+      const [ affectedRows ] = await Acesso.update(dados, { where: {id} })
+
+      if(affectedRows > 0){
+        const acesso = await Acesso.findByPk(id)
+        return  acesso ? acesso.toJSON() as AcessoTypes : null;
+      }
+
+      return null
+    }catch(err: any){
+      console.error("Erro ao atualizar acesso", err);
+      throw new Error("Não foi possível atualizar os acessos");
+    }
+  }
+
+  public async deleteAcessos(id: number): Promise<boolean>{
+    try{
+      const deletedAcesso = await Acesso.destroy({ where: {id} })
+      return deletedAcesso > 0;
+    }catch(err: any){
+      console.log("Erro ao deletar acesso", err);
+      throw new Error("Não foi possível deletar o acesso")
+    }
+  }
 }
