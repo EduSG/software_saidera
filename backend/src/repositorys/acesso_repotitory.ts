@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import sqlite3 from "sqlite3";
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+//import bcrypt from "bcrypt";
 import path from "path";
 import Acesso from "../models/acesso.model";
 import { AcessoTypes } from "../interfaces";
@@ -16,7 +16,7 @@ export class AcessoRepository {
       throw new Error("Não foi possível criar o acesso!");
     }
   }
-i
+
   public async getAcessoById(id: number): Promise<AcessoTypes | null> {
     try {
       const acesso = await Acesso.findByPk(id);
@@ -25,6 +25,10 @@ i
       console.error("Erro ao criar usuário:", err);
       throw new Error("Não foi possível criar o acesso!");
     }
+  }
+
+  public async findByEmail(email: string) {
+    return Acesso.findOne({ where: { email } });
   }
 
   public async getAcessos(): Promise<AcessoTypes[]> {

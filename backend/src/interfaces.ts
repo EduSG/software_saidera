@@ -99,6 +99,7 @@ export interface AcessoTypes {
   nome: string;
   email: string;
   senha: string;
+  id_filemaker: number;
   role_id: number;
 }
 

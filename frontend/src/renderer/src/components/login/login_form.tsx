@@ -10,7 +10,8 @@ export function LoginForm({ onLogin }: LoginFormProps) {
 
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault;
+    e.preventDefault();
+    console.log(email)
     onLogin(email, password)
   }
 

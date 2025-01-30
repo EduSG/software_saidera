@@ -43,7 +43,7 @@ const Tabela: React.FC<{ linhas: LinhaTabela[] }> = ({ linhas }) => {
 
             return (
               <tr key={index} className={linha.atual ? 'bg-green-100' : ''}>
-                <td className="border border-gray-300 px-4 py-2 font-bold">{linha.title}</td>
+                <td className="truncate border border-gray-300 px-4 py-2 font-bold">{linha.title}</td>
                 {mesesCompletos.map((mes, i) => (
                   <td key={i} className="border border-gray-300 px-4 py-2 text-center">
                     {mes.valor}

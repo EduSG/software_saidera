@@ -3,12 +3,14 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from '../config/database';
 import { AcessoTypes } from '../interfaces';
+import { AllowNull } from 'sequelize-typescript';
 
 class Acesso extends Model<AcessoTypes> {
   public id!: number;
   public nome!: string;
   public email!: string;
   public senha!: string;
+  public id_filemaker!: number;
   public role_id!: number; 
 }
 
@@ -29,6 +31,10 @@ Acesso.init(
     },
     senha: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    id_filemaker: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     role_id: {

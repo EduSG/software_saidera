@@ -26,6 +26,10 @@ Acesso.init({
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
+    id_filemaker: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: false,
+    },
     role_id: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,

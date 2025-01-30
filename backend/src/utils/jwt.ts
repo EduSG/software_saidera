@@ -1,13 +1,27 @@
 import jwt from 'jsonwebtoken';
 
-const SECRET_KEY = 'SHIMONADEMAIORDETUDO123LOL'; 
+const SECRET_KEY = 'BELLEEPOQUEJOGADAS'; // Use uma chave segura em produção
 
-function generateToken(userId: number): string {
-  return jwt.sign({ userId }, SECRET_KEY, { expiresIn: '1h' });
+interface TokenPayload {
+  id: number;
+  nome: string;
+  role: number;
+  id_filemaker: number;
 }
 
-function verifyToken(token: string): any {
-  return jwt.verify(token, SECRET_KEY);
-}
+export const generateToken = (user: TokenPayload): string => {
+  return jwt.sign(
+    {
+      id: user.id,
+      nome: user.nome,
+      role: user.role,
+      id_filemaker: user.id_filemaker,
+    },
+    SECRET_KEY,
+    { expiresIn: '2 weeks' }
+  );
+};
 
-export { generateToken, verifyToken };
+export const verifyToken = (token: string): TokenPayload => {
+  return jwt.verify(token, SECRET_KEY) as TokenPayload;
+};
