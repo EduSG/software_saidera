@@ -29,5 +29,8 @@ class AcessoService {
     static async getAcessos() {
         return acesso_repo.getAcessos();
     }
+    static getAcessobyID(id) {
+        return acesso_repo.getAcessoById(id);
+    }
 }
 exports.AcessoService = AcessoService;

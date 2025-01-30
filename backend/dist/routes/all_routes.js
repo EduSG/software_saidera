@@ -31,4 +31,5 @@ exports.AllRoutes.get("produto_proposta", controller_produto_proposta_1.ProdutoP
 exports.AllRoutes.post("produto_pedido_lotes", controller_produto_pedido_1.ProdutoPedidoController.adicionarProdutoPedidoLote);
 exports.AllRoutes.get("produto_pedido", controller_produto_pedido_1.ProdutoPedidoController.getProdutoPedido);
 exports.AllRoutes.post('/acesso', acesso_controller_1.AcessoController.adicionaAcesso);
-exports.AllRoutes.get('/acesso', acesso_controller_1.AcessoController.getAcessos);
+exports.AllRoutes.get('/acessos', acesso_controller_1.AcessoController.getAcessos);
+exports.AllRoutes.get('/acesso/:id', acesso_controller_1.AcessoController.getAcessobyID);

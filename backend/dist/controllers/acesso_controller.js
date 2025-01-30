@@ -23,5 +23,15 @@ class AcessoController {
             res.status(500).send({ error: error.message }); // Trate erros internos do servidor
         }
     }
+    static async getAcessobyID(req, res) {
+        try {
+            const { id } = req.params;
+            const usuario = await acesso_service_1.AcessoService.getAcessobyID(+id);
+            res.status(200).send(usuario);
+        }
+        catch (err) {
+            res.status(500).send({ error: err.message });
+        }
+    }
 }
 exports.AcessoController = AcessoController;

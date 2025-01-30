@@ -49,7 +49,7 @@ Acesso.init(
   {
     sequelize,
     tableName: 'acessos',
-    timestamps: false,
+    timestamps: true,
   }
 );
 
