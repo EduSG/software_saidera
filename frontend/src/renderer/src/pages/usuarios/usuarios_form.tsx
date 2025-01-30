@@ -1,14 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ArrowUp, ArrowDown, ArrowsOutLineVertical } from 'phosphor-react'
 import UserModal from '../../components/modal/modal'
 import UserForm from './usuario_form_modal'
+import { createAcesso, getAcessoById, getAllAcessos } from "../../services/usuario_services"
+
 
 interface User {
   id: number
   name: string
   email: string
   role: string
-  joined: string
   lastLogin: string
 }
 
@@ -19,24 +20,18 @@ export default function UsersPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   // Mock data baseado na imagem fornecida
-  const [users, setUsers] = useState<User[]>([
-    {
-      id: 1,
-      name: 'Sadie E',
-      email: '',
-      role: 'SiteAdmin',
-      joined: '12/14/2016',
-      lastLogin: '12/14/2023'
-    },
-    {
-      id: 2,
-      name: 'Christina',
-      email: 'content@example.com',
-      role: 'ContentMgr',
-      joined: '12/16/2016',
-      lastLogin: '12/16/2023'
-    }
-  ])
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    fetchUsers()
+  }, [])
+
+  const fetchUsers = async () => {
+    const response = await getAllAcessos();
+    setUsers(response.data);
+    console.log(response)
+  }
+
 
   const handleCreateUser = (newUser: {
     name: string
@@ -70,12 +65,14 @@ export default function UsersPage() {
     return sortDirection === 'asc' ? compareValue : -compareValue
   })
 
-  const filteredUsers = sortedUsers.filter(
-    (user) =>
-      user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.role.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  //const filteredUsers = sortedUsers.filter(
+  //  (user) =>
+  //    user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //    user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //    user.role.toLowerCase().includes(searchTerm.toLowerCase())
+  //)
+
+  const filteredUser = users;
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
@@ -110,7 +107,7 @@ export default function UsersPage() {
           <table className="w-full">
             <thead className="bg-gray-50">
               <tr>
-                {['name', 'email', 'role', 'joined', 'lastLogin'].map((field) => (
+                {['name', 'email', 'role', 'lastLogin'].map((field) => (
                   <th
                     key={field}
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
@@ -122,7 +119,6 @@ export default function UsersPage() {
                           name: 'Nome',
                           email: 'Email',
                           role: 'Cargo',
-                          joined: 'Data de Adição',
                           lastLogin: 'Último Login'
                         }[field]
                       }
@@ -145,12 +141,11 @@ export default function UsersPage() {
             </thead>
 
             <tbody className="bg-white divide-y divide-gray-200">
-              {filteredUsers.map((user) => (
+              {users.map((user) => (
                 <tr key={user.id}>
                   <td className="px-6 py-4 whitespace-nowrap">{user.name}</td>
                   <td className="px-6 py-4 whitespace-nowrap">{user.email || '-'}</td>
                   <td className="px-6 py-4 whitespace-nowrap">{user.role}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{user.joined}</td>
                   <td className="px-6 py-4 whitespace-nowrap">{user.lastLogin}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-right space-x-2">
                     <button className="text-blue-500 hover:text-blue-600">Editar</button>

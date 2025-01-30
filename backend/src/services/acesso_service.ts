@@ -32,6 +32,10 @@ export class AcessoService {
     return acesso_repo.getAcessos();
   }
 
+  static getAcessobyID(id: number){
+    return acesso_repo.getAcessoById( id )
+  }
+
 }
 
 

@@ -37,4 +37,5 @@ AllRoutes.post("produto_pedido_lotes", ProdutoPedidoController.adicionarProdutoP
 AllRoutes.get("produto_pedido", ProdutoPedidoController.getProdutoPedido)
 
 AllRoutes.post('/acesso', AcessoController.adicionaAcesso);
-AllRoutes.get('/acesso', AcessoController.getAcessos);
+AllRoutes.get('/acessos', AcessoController.getAcessos);
+AllRoutes.get('/acesso/:id', AcessoController.getAcessobyID);

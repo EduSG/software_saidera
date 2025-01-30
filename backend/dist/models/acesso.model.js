@@ -41,6 +41,6 @@ Acesso.init({
 }, {
     sequelize: database_1.default,
     tableName: 'acessos',
-    timestamps: false,
+    timestamps: true,
 });
 exports.default = Acesso;

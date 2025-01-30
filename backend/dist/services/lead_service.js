@@ -7,9 +7,7 @@ exports.LeadService = void 0;
 const lead_model_1 = __importDefault(require("../models/lead.model"));
 class LeadService {
     static async createLote(dados) {
-        const promises = Object.values(dados).map((lead) => lead_model_1.default.create(lead));
-        await Promise.all(promises);
-        return;
+        await lead_model_1.default.bulkCreate(Object.values(dados), { validate: true });
     }
     static async getLeads() {
         return lead_model_1.default.findAll();
