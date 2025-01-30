@@ -10,7 +10,7 @@ class ProdutoPropostaRepository {
         this.produtosProposta = {};
         this.produtosProposta = produtosProposta;
     }
-    async getProdutosPedido() {
+    async getProdutosProposta() {
         try {
             const produtosProposta = await produto_proposta_model_1.default.findAll();
             return produtosProposta.map((produtoProposta) => produtoProposta.toJSON());

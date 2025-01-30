@@ -64,7 +64,7 @@ ProdutoLead.init(
   },
   {
     sequelize,
-    tableName: 'produto_pedido',
+    tableName: 'produto_lead',
     timestamps: false,
   }
 );

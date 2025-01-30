@@ -9,7 +9,7 @@ export class ProdutoPropostaRepository {
     this.produtosProposta = produtosProposta;
   }
 
-  public async getProdutosPedido(): Promise<ProdutoPropostaAttributes[]> {
+  public async getProdutosProposta(): Promise<ProdutoPropostaAttributes[]> {
     try {
       const produtosProposta = await ProdutoProposta.findAll();
       return produtosProposta.map((produtoProposta: any) => produtoProposta.toJSON()) as ProdutoPropostaAttributes[];

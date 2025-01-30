@@ -8,7 +8,7 @@ export class ProdutoLeadRepository {
     this.produtosLead = produtosLead;
   }
 
-  public async getProdutosPedido(): Promise<ProdutoLeadAttributes[]> {
+  public async getProdutosLead(): Promise<ProdutoLeadAttributes[]> {
     try {
       const produtosLead = await ProdutoLead.findAll();
       return produtosLead.map((produtoLead: any) => produtoLead.toJSON()) as ProdutoLeadAttributes[];
