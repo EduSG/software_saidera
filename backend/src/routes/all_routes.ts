@@ -7,6 +7,7 @@ import { FornecedorController } from '../controllers/controller_fornecedor';
 import { AcessoController } from '../controllers/acesso_controller';
 import { ProdutoLeadController } from '../controllers/controller_produto_lead';
 import { ProdutoPropostaController } from '../controllers/controller_produto_proposta';
+import { ProdutoPedidoController } from '../controllers/controller_produto_pedido';
 // Cria uma instância do Router do Express
 export const AllRoutes = Router();
 
@@ -31,6 +32,9 @@ AllRoutes.get('produto_lead', ProdutoLeadController.getProdutoLead);
 
 AllRoutes.post("produto_proposta_lotes", ProdutoPropostaController.adicionarProdutoPropostaLote)
 AllRoutes.get("produto_proposta", ProdutoPropostaController.getProdutoProposta)
+
+AllRoutes.post("produto_pedido_lotes", ProdutoPedidoController.adicionarProdutoPedidoLote)
+AllRoutes.get("produto_pedido", ProdutoPedidoController.getProdutoPedido)
 
 AllRoutes.post('/acesso', AcessoController.adicionaAcesso);
 AllRoutes.get('/acesso', AcessoController.getAcessos);
