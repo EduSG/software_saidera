@@ -24,8 +24,11 @@
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^3.0.0",
     "@radix-ui/react-collapsible": "^1.1.2",
+    "@types/jsonwebtoken": "^9.0.8",
+    "axios": "^1.7.9",
     "clsx": "^2.1.1",
     "electron-router-dom": "^1.0.5",
+    "jsonwebtoken": "^9.0.2",
     "phosphor-react": "^1.4.1",
     "react-router-dom": "^6.26.0",
     "vite-plugin-static-copy": "^2.2.0"

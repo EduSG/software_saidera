@@ -10,22 +10,22 @@ import { Produtos } from '../pages/area_produtos'
 import { Usuarios } from '../pages/usuarios'
 import { LoginPage } from '../pages/login_page'
 import { Navigate } from 'react-router-dom'
+import PermissaoPage from '../pages/permissao_page'
 
 export function Routes() {
-  const isAuthenticated = !!localStorage.getItem('token') // Verifica se o token JWT existe
-
+  const isAuthenticated = !!localStorage.getItem('token')
   return (
     <Router
       main={
         <>
-          {isAuthenticated && (
+          {!isAuthenticated && (
             <>
               <Route path="/login" element={<LoginPage />} />
               <Route path="*" element={<Navigate to="/login" />} />{' '}
             </>
           )}
 
-          {!isAuthenticated && (
+          {isAuthenticated && (
             <Route path="/" element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/detail" element={<Detail />} />
@@ -35,6 +35,7 @@ export function Routes() {
               <Route path="/comercial" element={<Comercial />} />
               <Route path="/produtos" element={<Produtos />} />
               <Route path="/usuarios" element={<Usuarios />} />
+              <Route path="/permissao" element={<PermissaoPage />} />
               <Route path="*" element={<Navigate to="/" />} />{' '}
             </Route>
           )}

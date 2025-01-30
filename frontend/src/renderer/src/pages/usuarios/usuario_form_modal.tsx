@@ -1,16 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getAllRoles, deleteRole } from '../../services/role_permission'
 
 interface UserFormProps {
   onSubmit: (user: { name: string; email: string; role: string; tempPassword: string }) => void;
 }
 
-const roles = ['SiteAdmin', 'ContentMgr', 'Developer', 'Viewer'];
 
 export default function UserForm({ onSubmit }: UserFormProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('');
   const [tempPassword, setTempPassword] = useState('');
+  const [roles, setRoles] = useState<any[]>([])
+
+
+  useEffect(() => {
+    fetchRoles()
+  }, [])
+
+  const fetchRoles = async () => {
+    const response = await getAllRoles()
+    const sanitized_response = response.data.map(role => role.name)
+    setRoles(sanitized_response)
+    console.log(roles)
+  }
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
