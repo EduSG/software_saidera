@@ -53,7 +53,7 @@ ProdutoLead.init({
     },
 }, {
     sequelize: database_1.default,
-    tableName: 'produto_pedido',
+    tableName: 'produto_lead',
     timestamps: false,
 });
 // Relacionamentos

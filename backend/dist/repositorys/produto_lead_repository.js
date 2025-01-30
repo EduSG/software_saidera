@@ -10,7 +10,7 @@ class ProdutoLeadRepository {
         this.produtosLead = {};
         this.produtosLead = produtosLead;
     }
-    async getProdutosPedido() {
+    async getProdutosLead() {
         try {
             const produtosLead = await produto_lead_model_1.default.findAll();
             return produtosLead.map((produtoLead) => produtoLead.toJSON());
