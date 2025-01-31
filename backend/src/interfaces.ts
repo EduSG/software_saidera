@@ -38,13 +38,11 @@ export interface ProdutoPedidoAttributes {
 
 export interface PedidoAttributes {
   id: number;
-  data_pedido: Date;
+  data_pedido: string;
   empresa: number;
   id_vendedor: number;
-  origem: string;
   id_proposta: number;
   id_cliente: number;
-  produtos_pedido: Record<string, any>; 
 }
 
 export interface ProdutoPropostaAttributes {
@@ -67,7 +65,6 @@ export interface PropostaAttributes {
   id_vendedor: number;
   id_lead: number;
   id_cliente: number;
-  produtos_proposta: Record<string, any>; 
 }
 
 export interface ProdutoLeadAttributes {
@@ -91,7 +88,6 @@ export interface LeadAttributes {
   origem: string;
   id_cliente: number;
   id_fornecedor: number;
-  produtos_lead: Record<string, any>; 
 }
 
 export interface AcessoTypes {

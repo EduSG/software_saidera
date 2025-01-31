@@ -41,10 +41,6 @@ Lead.init({
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
-    produtos_lead: {
-        type: sequelize_1.DataTypes.JSONB,
-        allowNull: true,
-    },
 }, {
     sequelize: database_1.default,
     tableName: 'leads',

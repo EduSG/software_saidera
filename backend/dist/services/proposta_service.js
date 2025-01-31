@@ -7,9 +7,7 @@ exports.PropostaService = void 0;
 const proposta_model_1 = __importDefault(require("../models/proposta.model"));
 class PropostaService {
     static async createLote(dados) {
-        const promises = Object.values(dados).map((proposta) => proposta_model_1.default.create(proposta));
-        await Promise.all(promises);
-        return;
+        await proposta_model_1.default.bulkCreate(Object.values(dados), { validate: true });
     }
     static async getPropostas() {
         return proposta_model_1.default.findAll();

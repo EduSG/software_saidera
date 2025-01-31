@@ -20,7 +20,7 @@ Pedido.init({
         allowNull: true,
     },
     data_pedido: {
-        type: sequelize_1.DataTypes.DATE,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: true,
     },
     empresa: {
@@ -31,20 +31,12 @@ Pedido.init({
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
-    origem: {
-        type: sequelize_1.DataTypes.STRING,
-        allowNull: true,
-    },
     id_proposta: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
     id_cliente: {
         type: sequelize_1.DataTypes.INTEGER,
-        allowNull: true,
-    },
-    produtos_pedido: {
-        type: sequelize_1.DataTypes.JSONB,
         allowNull: true,
     },
 }, {

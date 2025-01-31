@@ -3,12 +3,7 @@ import { RequestBody, PropostaAttributes } from "../interfaces";
 
 export class PropostaService {
   static async createLote(dados: RequestBody<PropostaAttributes>) {
-    const promises = Object.values(dados).map((proposta) =>
-      Proposta.create(proposta),
-    );
-    await Promise.all(promises);
-
-    return;
+    await Proposta.bulkCreate(Object.values(dados), { validate: true });
   }
 
   static async getPropostas() {

@@ -38,10 +38,6 @@ Proposta.init({
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true,
     },
-    produtos_proposta: {
-        type: sequelize_1.DataTypes.JSONB,
-        allowNull: true,
-    },
 }, {
     sequelize: database_1.default,
     tableName: 'propostas',

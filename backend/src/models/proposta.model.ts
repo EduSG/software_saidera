@@ -17,7 +17,6 @@ class Proposta extends Model<PropostaAttributes, PropostaCreationAttributes> {
   public id_lead!: number | null;
   public id_cliente!: number | null;
   public id_fornecedor!: number | null;
-  public produtos_proposta!: Record<string, any> | null;
 }
 
 Proposta.init(
@@ -48,10 +47,6 @@ Proposta.init(
       type: DataTypes.INTEGER,
       allowNull: true,
     }, 
-    produtos_proposta: {
-      type: DataTypes.JSONB,
-      allowNull: true,
-    },
   },
   {
     sequelize,

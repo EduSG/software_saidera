@@ -13,11 +13,8 @@ class Pedido extends Model<PedidoAttributes, PedidoCreationAttributes> {
   public data_proposta!: Date | null;
   public empresa!: number | null;
   public id_usuario!: number | null;
-  public id_lead!: number | null;
   public id_proposta!: number | null;
   public id_cliente!: number | null;
-  public id_fornecedor!: number | null;
-  public produtos_pedido!: Record<string, any> | null;
 }
 
 Pedido.init(
@@ -29,7 +26,7 @@ Pedido.init(
       allowNull: true,
     },
     data_pedido: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     empresa: {
@@ -40,20 +37,12 @@ Pedido.init(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    origem: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
     id_proposta: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
     id_cliente: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    produtos_pedido: {
-      type: DataTypes.JSONB,
       allowNull: true,
     },
   },

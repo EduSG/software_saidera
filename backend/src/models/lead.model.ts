@@ -16,7 +16,6 @@ class Lead extends Model<LeadAttributes, LeadCreationAttributes> {
   public origem!: string | null;
   public id_cliente!: number | null;
   public id_fornecedor!: number | null;
-  public produtos_proposta!: Record<string, any> | null;
 }
 
 Lead.init(
@@ -49,10 +48,6 @@ Lead.init(
     },
     id_fornecedor: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    produtos_lead: {
-      type: DataTypes.JSONB,
       allowNull: true,
     },
   },
